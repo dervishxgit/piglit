@@ -1,0 +1,107 @@
+# Test that vertex shader inputs can be arrays
+#
+# GLSLLangSpec.1.50.09 4.3.4 Inputs:
+# Vertex shader inputs can only be float, floating-point vectors, matrices, 
+# signed and unsigned integers and integer vectors.Vertex shader inputs can 
+# also form arrays of these types, but not structures. 
+# 
+# This test verifies basic functionality of vertex shader inputs using 
+# arrays of vec4 and mat4 respectively
+
+# author to blame: Steve Miller
+
+[require]
+GL >= 3.2
+GLSL >= 1.50
+
+[vertex shader]
+#version 150
+
+in vec4 vertex;
+
+in float a[2];
+in int 	 b[2];
+in vec3  c[2];
+
+flat out int i_failed;
+
+float ca[2];
+int cb[2];
+vec3 cc[2];
+
+float d[2];
+int   e[2];
+vec3  f[2];
+
+#define CHECK(value, expected) \
+	if (distance(value, expected) > 0.00001) \
+		failed = true
+
+void main()
+{
+	gl_Position = vertex;
+
+	ca[0] = a[0];
+	ca[1] = a[1];
+
+	cb[0] = b[0];
+	cb[1] = b[1];
+
+	cc[0] = c[0];
+	cc[1] = c[1];	
+
+	d[0] = a[0];
+	d[1] = a[1];
+
+	e[0] = b[0];
+	e[1] = b[1];
+
+	f[0] = c[0];
+	f[1] = c[1];
+
+	bool failed = false;
+
+	CHECK( d[0], ca[0] );
+	CHECK( d[1], ca[1] );
+	CHECK( e[0], cb[0] );
+	CHECK( e[1], cb[1] );
+	CHECK( f[0], cc[0] );	
+	CHECK( f[1], cc[1] );
+	
+	if (failed)
+		i_failed = 1;
+	else
+		i_failed = 0;
+
+}
+
+[fragment shader]
+#version 150
+
+flat in int i_failed;
+
+#define CHECK(value, expected) \
+	if (distance(value, expected) > 0.00001) \
+		failed = true
+
+void main()
+{
+
+	bool failed = bool(i_failed);
+
+	if (failed)
+		gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	else
+		gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+}
+
+[vertex data]
+vertex/float/2
+-1.0 -1.0
+ 1.0 -1.0
+ 1.0  1.0
+-1.0  1.0
+
+[test]
+draw arrays GL_TRIANGLE_FAN 0 4
+probe all rgba 0.0 1.0 0.0 1.0
