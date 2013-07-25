@@ -6,11 +6,11 @@
 //
 // Tests that arrays can be inputs to the vertex shader
 /*
-* GLSLLangSpec.1.50.09 Inputs:
+* Section 4.3.4 (Inputs) of the GLSLLangSpec.1.50.09 4.3.4 Inputs says:
 *
 * Vertex shader inputs can only be float, floating-point
-* vectors, matrices, signed and unsigned integers and integer vectors. 
-* Vertex shader inputs can also form arrays of these types, but not 
+* vectors, matrices, signed and unsigned integers and integer vectors.
+* Vertex shader inputs can also form arrays of these types, but not
 * structures.
 *
 */
