@@ -1,6 +1,7 @@
 /* [config]
  * expect_result: fail
  * glsl_version: 1.50
+ * test link: true
  * [end config]
  *
  * The GLSL 1.50 spec says:

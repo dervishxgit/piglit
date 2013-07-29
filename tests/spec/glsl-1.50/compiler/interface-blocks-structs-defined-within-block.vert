@@ -16,6 +16,9 @@ out block {
 		int a;
 		float b;
     } c;
+
+//? struct test_struct c; //instead?
+
 } inst;
 
 void main()
