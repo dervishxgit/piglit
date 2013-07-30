@@ -1,0 +1,47 @@
+/* Test case multiple FS in program:
+*   Test that gl_FragCoord redeclaration must be consistent across shaders
+*   in program.
+*
+* Section 4.3.8.1 (Input Layout Qualifiers) of GLSL 1.50 spec says:
+*  If gl_FragCoord is redeclared in any fragment shader in a program, it must
+*  be redeclared in all the fragment shaders in that program that have a static
+*  use gl_FragCoord. All redeclarations of gl_FragCoord in all fragment shaders
+*  in a single program must have the same set of qualifiers.
+*
+* This test is part of a series ensuring linker success/failure
+* under various combinations of gl_FragCoord redeclaration.
+*/
+
+[require]
+GLSL >= 1.50
+
+[fragment shader]
+#version 150
+
+in vec4 gl_FragCoord;
+
+void main() {
+
+}
+
+[fragment shader]
+#version 150
+
+in vec4 gl_FragCoord;
+
+void main() {
+
+}
+
+[fragment shader]
+#version 150
+
+in vec4 gl_FragCoord;
+
+void main() {
+
+}
+
+
+[test]
+link error
