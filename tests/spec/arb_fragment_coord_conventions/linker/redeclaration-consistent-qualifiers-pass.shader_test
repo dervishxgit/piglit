@@ -18,6 +18,29 @@ GLSL >= 1.50
 [fragment shader]
 #version 150
 
+layout(origin_upper_left, pixel_center_integer) in vec4 gl_FragCoord;
+
+void main() {
+
+}
+
+[fragment shader]
+#version 150
+
+layout(origin_upper_left, pixel_center_integer) in vec4 gl_FragCoord;
+
+void main() {
+
+}
+
+[fragment shader]
+#version 150
+
+layout(origin_upper_left, pixel_center_integer) in vec4 gl_FragCoord;
+
+void main() {
+
+}
 
 
 [test]
