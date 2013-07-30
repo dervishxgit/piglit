@@ -1,0 +1,11 @@
+//notes arb_fragment_coord_conventions
+
+//need:
+
++compiler tests
+
++linker/execution (shader_runner)
+ -linker tests should deal with questions directly pertinent to data between shaders, ie when they don't agree there would be a problem linking them. vs main should just do a gl_positions and access the data it was given. there does not need to be anything in fs main. at the end it should read:
+  [test]
+  link error
+ -execution should be for command relevant testing. this would apply if there were actual functions that needed to be verified. for frag_coord_conventions this may apply if we need to verify that changing the fs layout qualifiers changes the performance (it should not)
