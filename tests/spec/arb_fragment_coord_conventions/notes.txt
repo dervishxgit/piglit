@@ -15,3 +15,6 @@
  were actual functions that needed to be verified. for frag_coord_conventions
  this may apply if we need to verify that changing the fs layout qualifiers
  changes the performance (it should not)
+
++tests so far:
+basic: layout qualifiers
