@@ -17,4 +17,7 @@
  changes the performance (it should not)
 
 +tests so far:
-basic: layout qualifiers
+FAIL basic: layout qualifiers, all fail at this point. compiler does not seem to
+support redeclaration at this time
+
+FAIL(suspect it passes for wrong reasons) redeclaration illegal: vs; after use;
