@@ -25,3 +25,6 @@ FAIL(suspect it passes for wrong reasons) redeclaration illegal: vs; after use;
 
 linker:
 reasonably sure the linker tests are all in place. give this a once over to be sure
+
+execution:
+need c test/s to determine if change to pixel coords are correct.
