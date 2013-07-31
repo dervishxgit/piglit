@@ -24,3 +24,4 @@ support redeclaration at this time
 FAIL(suspect it passes for wrong reasons) redeclaration illegal: vs; after use;
 
 linker:
+reasonably sure the linker tests are all in place. give this a once over to be sure
