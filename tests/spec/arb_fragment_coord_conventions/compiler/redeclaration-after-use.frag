@@ -17,4 +17,7 @@ in vec4 gl_FragCoord; //redeclaration after use should be illegal
 
 void main() {
 
+     gl_FragColor(gl_FragCoord.x, gl_FragCoord.y,
+     		  gl_FragCoord.z, gl_FragCoord.z);
+
 }

@@ -23,4 +23,7 @@ layout(origin_upper_left, pixel_center_integer) in bool gl_FrontFacing;
 
 void main() {
 
+     gl_FragColor(gl_FragCoord.x, gl_FragCoord.y,
+     		  gl_FragCoord.z, gl_FragCoord.z);
+
 }
